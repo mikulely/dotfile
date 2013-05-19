@@ -1,0 +1,277 @@
+# vim:ft=config
+
+servers = (
+  {
+    address = "irc.freenode.net";
+    chatnet = "freenode";
+    password = "tacey:taceyther0ck";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_verify = "yes";
+    ssl_capath = "/etc/ssl/certs/";
+    autoconnect = "yes";
+  },
+
+  # { address = "localhost"; chatnet = "bitlbee"; autoconnect = "yes"; }
+);
+
+chatnets = {
+  freenode = { type = "IRC"; nick = "tacey"; };
+  # bitlbee = { type = "IRC"; };
+};
+
+channels = (
+  { name = "#archlinux"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#archlinux-cn"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#ubuntu"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#scheme"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#python"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#C++"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#vim"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#avplayer"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#metasploit"; chatnet = "freenode"; autojoin = "Yes"; }
+);
+
+aliases = {
+  C = "window close";
+  H = "help";
+  J = "join";
+  K = "kick";
+  N = "nick";
+  Q = "quit";
+  T = "topic";
+  EXIT = "quit";
+  LL = "lastlog";
+  W = "window";
+  M = "mark";
+  WC = "window close";
+  WK = "window kill";
+  WN = "window new hide";
+  WA = "window goto active";
+  RUN = "SCRIPT LOAD";
+};
+
+statusbar = {
+  # formats:
+  # when using {templates}, the template is shown only if it's argument isn't
+  # empty unless no argument is given. for example {sb} is printed always,
+  # but {sb $T} is printed only if $T isn't empty.
+  items = {
+    time = "{sb $Z}       ";
+    window = ":: {sb [$winref] $tag $itemname} ";
+    window_empty = ":: {sb [$winref] $tag $itemname} ";
+
+    # Solarized
+    lag = "{sb Lag: %m$0-%n}";
+    act = "{sb Act: $0-}";
+    more = "%k%3-- more --%n";
+    prompt = "{prompt}";
+    prompt_empty = "{prompt}";
+  };
+
+  default = {
+    window = {
+      type = "window";
+      placement = "top";
+      visible = "active";
+      items = { window = { }; window_empty = { }; typing_notice = { }; };
+    };
+
+    window_inact = {
+      type = "window";
+      placement = "top";
+      visible = "inactive";
+      items = { window = { }; window_empty = { }; };
+    };
+
+    prompt = {
+      type = "root";
+      placement = "bottom";
+      position = "100";
+      visible = "always";
+
+      items = {
+        time = { };
+        user = { };
+        prompt = { priority = "-1"; };
+        prompt_empty = { priority = "-1"; };
+
+        input = { priority = "10"; };
+      };
+    };
+
+    topic = {
+      type = "root";
+      placement = "bottom";
+      position = "1";
+      visible = "always";
+      items = { topic = { }; topic_empty = { }; };
+    };
+
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+  };
+};
+
+settings = {
+  core = {
+    real_name = "Jiaying Ren";
+    user_name = "tacey";
+    nick = "tacey";
+    awaylog_file = "/dev/null";
+    log_create_mode = "600";
+    log_timestamp = "%Y-%m-%d %H:%M ";
+    quit_message = "再见...";
+    recode = "yes";
+    recode_out_default_charset = "UTF-8";
+    recode_fallback = "GBK";
+    recode_transliterate = "yes";
+    recode_autodetect_utf8 = "yes";
+  };
+
+  "fe-text" = { actlist_sort = "refnum"; };
+  "irc/dcc" = { dcc_download_path = "~/irssi/Downloads/Yunio/"; };
+
+  "fe-common/core" = {
+    #https://github.com/huyz/irssi-colors-solarized
+    theme = "./themes/solarized-universal.theme";
+    hilight_color = "= %R";
+    beep_msg_level = "NOTICE MSGS HILIGHT";
+    beep_when_away = "no";
+    bell_beeps = "no";
+    hilight_nick_matches = "yes";
+    autolog_path = "~/.irssi/logs/$tag/$0.log";
+    autolog = "yes";
+  };
+
+  "perl/core/scripts" = {
+    neat_maxlength = "15";
+    awl_display_key = "[$Q:$H$C$S]";
+    awl_position = "0";
+    awl_sbar_maxlength = "no";
+    awl_maxlines = "3";
+    screen_away_message = "away";
+    hilightwin_showprivmsg = "no";
+    bitlbee_send_typing = "yes";
+    lt_in_queries = "yes";
+    neat_left_actions = "no";
+    ### For Solarized trackbar.pl script
+    trackbar_style = "%B";
+    ### For Solarized adv_windowlist.pl script
+    awl_display_key_active = "%k%2[$Q=$N:$C]%n";
+    awl_display_nokey_active = "%k%2[$N:$C]%n";
+    awl_display_nokey = "[$N:$H$C$S]";
+    nicklist_height = "22";
+    nicklist_width = "11";
+  };
+};
+
+ignores = (
+  { level = "JOINS PARTS QUITS NICKS"; },
+  #{ level = "MODES"; channels = ( "&bitlbee" ); }
+);
+
+hilights = (
+  { text = "tacey"; nick = "no"; word = "yes"; fullword = "yes"; },
+  { text = "@tacey"; nick = "no"; word = "yes"; fullword = "yes"; }
+);
+
+logs = { };
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#archlinux";
+        tag = "freenode";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#archlinux-cn";
+        tag = "freenode";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#C++";
+        tag = "freenode";
+      }
+    );
+  };
+  5 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#ubuntu";
+        tag = "freenode";
+      }
+    );
+  };
+  6 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#scheme";
+        tag = "freenode";
+      }
+    );
+  };
+  7 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#python";
+        tag = "freenode";
+      }
+    );
+  };
+  8 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#vim";
+        tag = "freenode";
+      }
+    );
+  };
+  9 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#avplayer";
+        tag = "freenode";
+      }
+    );
+  };
+  q = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#metasploit";
+        tag = "freenode";
+      }
+    );
+  };
+};

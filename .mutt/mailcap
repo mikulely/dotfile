@@ -1,0 +1,16 @@
+#audio
+audio/*; mocp %s > /dev/null
+#video
+video/*; mplayer %s > /dev/null
+#image
+image/*; display %s > /dev/null
+#msword
+application/msword; /usr/lib/libreoffice/program/oosplash --writer %s; copiousoutput
+#ppt
+application/vnd.openxmlformats-officedocument.presentationml.presentation; /usr/lib/libreoffice/program/oosplash --impress %s; copiousoutput
+#html
+text/html ; w3m -T text/html -I %{charset} -dump %s ; nametemplate=%s.html ; needsterminal; copiousoutput
+#rar
+application/x-rar; rar l %s; copiousoutput
+#pdf
+application/pdf; zathura %s pdf

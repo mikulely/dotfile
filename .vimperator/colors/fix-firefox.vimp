@@ -1,0 +1,13 @@
+" タブ関連のボタンなど削除
+" URLのロード中表示などを巨大化
+style -name fix-firefox chrome://* <<EOM
+  .alltabs-button, .new-tab-button, .tabview-button, #tabs-closebutton {
+    display: none !important;
+  }
+
+  #statusbar-display {
+    font-size: 2em;
+  }
+EOM
+
+hi StatusLine -a text-align: start;

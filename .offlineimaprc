@@ -1,0 +1,45 @@
+[general]
+#accounts=GMail,Novell
+accounts=GMail
+maxsyncaccounts = 2
+ui = Quiet
+#ui = ttyui
+#ui = Blinkenlights
+socktimeout = 90
+
+[Account GMail]
+localrepository= Gmail-Local
+remoterepository= Gmail-Remote
+# autorefresh = 2
+
+[Account Novell]
+localrepository= Novell-Local
+remoterepository= Novell-Remote
+# autorefresh = 4
+
+[Repository Gmail-Local]
+type = Maildir
+localfolders = ~/.Mail/GMail
+
+[Repository Novell-Local]
+type = Maildir
+localfolders = ~/.Mail/Novell
+
+[Repository Gmail-Remote]
+type = Gmail
+remoteuser = xxxxxxxxxxxxxx@gmail.com
+remotepass = xxxxxxxxxxxxxx
+realdelete = no
+ssl = no
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+maxconnections = 2
+
+[Repository Novell-Remote]
+type = IMAP
+remotehost = imap.novell.com
+remoteport = 143
+remoteuser = xxxx@suse.com
+remotepass = xxxxxxxxx
+realdelete = yes
+ssl = no
+maxconnections = 2

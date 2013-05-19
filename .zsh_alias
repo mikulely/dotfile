@@ -1,0 +1,129 @@
+alias psc='ps xawf -eo pid,user,cgroup,args'
+alias Info='yaourt -Si'
+alias Install='yaourt -Sa'
+alias Search='yaourt -Ss'
+alias SearchLocal='yaourt -Qs'
+alias SearchLocalGITs='yaourt -Qs $(pacman -Q|grep git|cut -d" " -f1|grep git)'
+alias UPdateAURGITs='yaourt -S $(pacman -Q|grep git|cut -d" " -f1|grep git)'
+alias Up='sudo reflector -f 10 -l 20 -p http --save /etc/pacman.d/mirrorlist && yaourt --aur -Qm -Syyuu'
+alias UpdateSystem='yaourt --aur -Qm -Syu'
+alias pacnew_finder='locate -e --regex "\.pacnew$|\.pacsave$"'
+alias adb="awmtt -C ~/.config/awesome/rc.lua "
+alias go="gccgo"
+alias nemu_update="xdg_menu --format awesome --root-menu /etc/xdg/menus/arch-applications.menu > ~/.config/awesome/menu.lua"
+alias awesomeconf="vim .config/awesome/rc.lua"
+alias top="htop"
+alias font_cn="fc-list :lang=zh-cn"
+alias axel="axel -n 5 "
+alias grub-update="grub-mkconfig -o /boot/grub/grub.cfg"
+alias show_io_scheduler="cat /sys/block/sda/queue/scheduler"
+alias wget_with_robots_off="wget -erobots=off"
+alias find_daemon="ps -e -o pid,ppid,cmd,tty | grep daemon"
+alias trash-restore="restore-trash"
+alias pp="ps -aux | grep -v grep"
+alias pa='ps aux'
+alias df='df -h'
+alias l='ls $LS_OPTION -laG'
+alias ll='ls $LS_OPTION -lG'
+alias le='ls $LS_OPTION -lAG | less'
+alias f='du -h -d 2'
+alias ls_on_page='ls --color=auto --group-directories-first'
+alias ls_dir_count='ls -l * |grep "^d"|wc -l'
+alias ls_file_count='ls -l * |grep "^-"|wc -l'
+#Zip tarball Creat
+alias zc='tar -zcvf'
+#Zip tarball Extract
+alias ze='tar -zxvf'
+alias jc='tar -jcvf'
+alias je='tar -jxvf'
+
+alias ka='killall'
+alias dstat='dstat -cdlmnpsy'
+
+alias ..='cd ..'
+alias rm='rm -i'
+alias grep='grep –color=auto'
+alias diff="colordiff"
+
+#转换mp3中的ID3乱码
+alias mutagen="mid3iconv -e GBK *.mp3"
+
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias vimconfig="vim ~/.vimrc"
+
+alias gu='iconv -f GBK -t UTF-8 $FILE -o'
+alias ug='iconv -f UTF-8 -t GBK $FILE -o'
+
+#alias music='tmux neww -n music "mplayer ''mms://mms.cnr.cn//cnr3?MTUjMCM''"'
+alias a='tmux -2 att'
+
+alias cx="chmod +x"
+alias v="vim"
+alias m="mocp"
+alias V="virtualbox"
+
+#Git
+
+alias gdsv="git diff --staged | vim -"
+alias gcap="git commit -a && git pull --rebase"
+alias gpr="git pull --rebase"
+alias gs="git status"
+alias ssh_github="ssh-keygen -t rsa  -C "renjiaying2009@gmail.com" -f ~/.ssh/tacey-github"
+
+#For archlinux
+#Delete packages from pacman cache that are older than 7 days
+alias clean_arch_cache="find /var/cache/pacman/pkg -not -mtime -7 | sudo xargs rm"
+
+#For pacman
+function pacman_show_name(){
+    pacman -Ql $1 | grep '/s\?bin/.'
+}
+
+
+
+#For AUR
+#检查安装的 AUR 包是否和社区同步
+alias check_aur_sync="pacman -Qmq | parallel 'ver=($(package-query {} -AQ -f "%l")); [[ "${ver[0]}" != "${ver[1]}" ]] && echo {} ${ver[0]} != ${ver[1]}'"
+
+#递归删除孤立软件包
+orphans() {
+    if [[ ! -n $(pacman -Qdt) ]]; then
+        echo no orphans to remove
+    else
+        sudo pacman -Rs $(pacman -Qdtq)
+    fi
+}
+
+function cat_typescript_with_noclor(){
+    cat $@| sed 's/\x1b[[0-9;]*.//g' > nocolor
+}
+
+function sdtemperature t() {
+    sudo hddtemp -n /dev/$1
+}
+
+function isalive () { NODE=$1 ping -c 3 $NODE > /dev/null 2>&1 if [ $? -eq 0 ] then return 1 else return 0 }
+
+#目录名乱码的转换
+function convdir () {
+    convmv -f gtk -t utf8 -notest -r $1
+}
+
+#文件名乱码的转换
+function convfile () {
+    convmv -f gbk -t utf8 -notest $1
+}
+
+function evenodd () {
+    #根据最后一位数字判断奇偶性
+    LAST_DIGIT=`echo $1 | sed 's/\(.*\)\(.\)$/\2/'`
+    case $LAST_DIGIT in
+         0|2|4|6|8)
+        return 1
+        ;;
+    *)
+        return 0
+        ;;
+esac
+}

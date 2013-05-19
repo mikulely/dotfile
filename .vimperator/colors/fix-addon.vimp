@@ -1,0 +1,5 @@
+style -name addons chrome://* <<EOM
+  .alltabs-button, .new-tab-button, .tabview-button {
+    display: none !important;
+  }
+EOM

@@ -1,0 +1,25 @@
+# gmail specific options
+set realname = "Jiaying Ren"
+set signature = ~/.mutt/LZU.sig
+set from = "renjiaying2009@gmail.com"
+set sendmail = "/usr/bin/msmtp -a gmail"
+set mbox = "+GMail/archive"
+set postponed = "+GMail/drafts"
+macro index E \
+    "<change-folder>+GMail/archive<enter><limit>~B " \
+    "search everything"
+
+macro index D \
+    "<save-message>+GMail/trash<enter>" \
+    "move message to the trash"
+
+macro index S \
+    "<save-message>+GMail/spam<enter>"  \
+        "mark message as spam"
+
+# mails cced myself
+color index brightblue black   '~c renjiaying2009@gmail.com'
+# # mails to myself
+color index red black   '~t renjiaying2009@gmail.com'
+## mails sent from myself
+color index cyan black   '~f renjiaying2009@gmail.com'

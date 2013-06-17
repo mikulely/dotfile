@@ -5,10 +5,13 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="nebirhos"
+
 #For Fcitx
 export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
+#Emacs中使用fcitx
+export LC_CTYPE="zh_CN.UTF-8"
 
 export SHELL='zsh'
 export TERM='screen-256color'
@@ -17,7 +20,8 @@ export EDITOR='vim'
 
 # Using Vim as $MANPAGER
 # http://zameermanji.com/blog/2012/12/30/using-vim-as-manpager/
-export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+# export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
+
 #pkgfile helps you find cmd
 source /usr/share/doc/pkgfile/command-not-found.zsh
 

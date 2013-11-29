@@ -4,7 +4,7 @@ servers = (
   {
     address = "irc.freenode.net";
     chatnet = "freenode";
-    password = "tacey:taceyther0ck";
+    password = "name:pasword";
     port = "6697";
     use_ssl = "yes";
     ssl_verify = "yes";
@@ -16,7 +16,7 @@ servers = (
 );
 
 chatnets = {
-  freenode = { type = "IRC"; nick = "tacey"; };
+  freenode = { type = "IRC"; nick = "name"; };
   # bitlbee = { type = "IRC"; };
 };
 
@@ -120,9 +120,9 @@ statusbar = {
 
 settings = {
   core = {
-    real_name = "Jiaying Ren";
-    user_name = "tacey";
-    nick = "tacey";
+    real_name = "";
+    user_name = "name";
+    nick = "name";
     awaylog_file = "/dev/null";
     log_create_mode = "600";
     log_timestamp = "%Y-%m-%d %H:%M ";
@@ -177,8 +177,8 @@ ignores = (
 );
 
 hilights = (
-  { text = "tacey"; nick = "no"; word = "yes"; fullword = "yes"; },
-  { text = "@tacey"; nick = "no"; word = "yes"; fullword = "yes"; }
+  { text = "name"; nick = "no"; word = "yes"; fullword = "yes"; },
+  { text = "@name"; nick = "no"; word = "yes"; fullword = "yes"; }
 );
 
 logs = { };

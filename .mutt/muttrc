@@ -1,6 +1,4 @@
 #forked_from: http://mutt.blackfish.org.uk/
-#author: tacey ren
-#email: renjiaying2009@gmail.com 
 unset status_on_top
 reset all # reset all variables to system defaults.
 unhook *  # remove all hooks¬

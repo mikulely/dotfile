@@ -1,8 +1,4 @@
 " ------------------------------------------------------------------------------
-"Biref it.
-iabbr r@@ renjiaying2009@gmail.com
-iabbr ssig --<cr>author: tacey ren<cr>email: renjiaying2009@gmail.com
-" ------------------------------------------------------------------------------
 " Environment {
 set nocompatible           " Use Vim defaults
 set shortmess=atI          " no ads when startup

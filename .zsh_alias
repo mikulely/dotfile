@@ -69,7 +69,6 @@ alias gdsv="git diff --staged | vim -"
 alias gcap="git commit -a && git pull --rebase"
 alias gpr="git pull --rebase"
 alias gs="git status"
-alias ssh_github="ssh-keygen -t rsa  -C "renjiaying2009@gmail.com" -f ~/.ssh/tacey-github"
 
 #For archlinux
 #Delete packages from pacman cache that are older than 7 days
